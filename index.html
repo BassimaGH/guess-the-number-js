@@ -12,9 +12,17 @@
     <!--MAIN HEADING-->
     <h1>Guess The Number</h1>
     <!-- NUMBER INPUT -->
-    <input id="numberInput" class="numberInputStyle" type="number" max="100" min="0">
-    <!-- SUBMIT INPUT -->
-    <input type="submit" class="submitInputStyle" id="submitBtn" value="Submit">
+    <form id="formContainer">
+        <input id="numberInput" class="numberInputStyle" type="number" max="100" min="0">
+    </form>
+    <!-- BUTTONS CONTAINER -->
+    <div class="btnContainer">
+        <!-- SUBMIT INPUT -->
+        <input type="submit" class="buttonStyle" id="submitBtn" value="Submit">
+        <!-- RESET BUTTON -->
+        <button id="resetbtn" class="buttonStyle">Reset</button>
+    </div>  
+    <!-- RANDOM NUMBER VALUE ELEMENT -->
     <div class="ansStyle" id="randomeNumberElement"></div>
 </body>
 </html>
