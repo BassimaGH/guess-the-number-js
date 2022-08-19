@@ -11,6 +11,8 @@
 <body>
     <!--MAIN HEADING-->
     <h1>Guess The Number</h1>
+    <!-- GAME RULES -->
+    <p class="gameRules">We have selected a random number between 1 and 100. See if you can guess it in 5 turns or fewer. We'll tell you if your guess was too high or too low.</p>
     <!-- NUMBER INPUT -->
     <form id="formContainer">
         <input id="numberInput" class="numberInputStyle" type="number" max="100" min="0">
@@ -20,9 +22,11 @@
         <!-- SUBMIT INPUT -->
         <input type="submit" class="buttonStyle" id="submitBtn" value="Submit">
         <!-- RESET BUTTON -->
-        <button id="resetbtn" class="buttonStyle">Clear</button>
+        <button id="resetbtn" class="buttonStyle">Reset</button>
     </div>  
     <!-- RANDOM NUMBER VALUE ELEMENT -->
-    <div class="ansStyle" id="randomeNumberElement"></div>
+    <div class="ansStyle" id="randomeNumberElement">
+        <p>Previous guesses</p>
+    </div>
 </body>
 </html>
