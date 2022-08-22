@@ -2,14 +2,17 @@ let randomNumValue = Math.floor(Math.random() * 100);
 let guessTries = 1;
 let numberInputElementValue = document.getElementById("numberInput");
 
+const atemptList = document.createElement("li");
 
 function numberConditions() {
     numberInputElementValue = document.getElementById("numberInput").value;
 
     if (numberInputElementValue == randomNumValue) {
         wonGame();
+        addAtemptToList();
     } else if (guessTries === 5) {
         lostGame();
+        addAtemptToList();
     } else {
         if (numberInputElementValue > randomNumValue) {
             alert("WRONG GUESS!! TRY A SMALLER NUMBER");
@@ -30,15 +33,17 @@ function numberConditions() {
 function lostGame() {
     alert("GAME OVER!! THE CORRECT ANSWER IS " + randomNumValue);
     
-    resetGame();
+    document.getElementById("numberInput").disabled = true;
+    document.getElementById("submitBtn").disabled = true;
 }
 
 function wonGame() {
-    alert("YOU GUESSED IT RIGHT!! YOU NEEDED " + guessTries + "GUESS");
+    alert("YOU GUESSED IT RIGHT!! YOU NEEDED " + guessTries + " GUESS");
     console.log(randomNumValue);
     console.log(guessTries);
 
-    resetGame();
+    document.getElementById("numberInput").disabled = true;
+    document.getElementById("submitBtn").disabled = true;    
 }
 
 function resetGame() {
@@ -47,19 +52,23 @@ function resetGame() {
 
     let formElement = document.getElementById("formContainer");
     formElement.reset();
+
+    document.getElementById("numberInput").disabled = false;
+    document.getElementById("submitBtn").disabled = false;
+    
+    atemptList.innerText = "";
 }
 
 function addAtemptToList() {
-    const atemptList = document.createElement("li");
     const atemptListElements = document.createElement("p");
     const atemptListContainer = document.getElementById("randomeNumberElement");
+    numberInputElementValue = document.getElementById("numberInput").value;
 
-    if (randomNumValue != numberInputElementValue.value) {
-        atemptListElements.innerText = numberInputElementValue.value;
+    if (randomNumValue != numberInputElementValue || numberInputElementValue == randomNumValue) {
+        atemptListElements.innerText = numberInputElementValue;
         atemptList.appendChild(atemptListElements);
 
         atemptListContainer.appendChild(atemptList);
-
     }
 } 
 

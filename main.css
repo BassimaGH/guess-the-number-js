@@ -12,6 +12,7 @@ body {
     display: flex;
     gap: 3vw;
     flex-direction: column;
+    list-style: none;
 }
 
 h1 {
