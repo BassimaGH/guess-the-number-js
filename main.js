@@ -13,6 +13,8 @@ function numberConditions() {
     } else if (guessTries === 5) {
         lostGame();
         addAtemptToList();
+    } else if (numberInputElementValue > 100 || numberInputElementValue < 1) {
+        setLimit();
     } else {
         if (numberInputElementValue > randomNumValue) {
             alert("WRONG GUESS!! TRY A SMALLER NUMBER");
@@ -64,14 +66,27 @@ function addAtemptToList() {
     const atemptListContainer = document.getElementById("randomeNumberElement");
     numberInputElementValue = document.getElementById("numberInput").value;
 
-    if (randomNumValue != numberInputElementValue || numberInputElementValue == randomNumValue) {
-        atemptListElements.innerText = numberInputElementValue;
+    if (randomNumValue != numberInputElementValue) {
+        if (numberInputElementValue > randomNumValue) {
+            atemptListElements.innerText = numberInputElementValue + " (Too high)";
+        } else if (numberInputElementValue < randomNumValue) {
+            atemptListElements.innerText = numberInputElementValue + " (Too low)";
+        }
+        atemptList.appendChild(atemptListElements);
+
+        atemptListContainer.appendChild(atemptList);
+    } else if (numberInputElementValue == randomNumValue) {
+        atemptListElements.innerText = numberInputElementValue + " (Correct number)";
         atemptList.appendChild(atemptListElements);
 
         atemptListContainer.appendChild(atemptList);
     }
 } 
 
+function setLimit() {
+    alert("ENTER A NUMBER BETWEEN 1-100");
+    guessTries = guessTries - 1;
+}
 
 function loadHandler() {
     const submitInputElement = document.getElementById("submitBtn");
