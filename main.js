@@ -19,13 +19,9 @@ function numberConditions() {
         if (numberInputElementValue > randomNumValue) {
             alert("WRONG GUESS!! TRY A SMALLER NUMBER");
             addAtemptToList();
-            console.log(randomNumValue);
-            console.log(guessTries);
         } else if (numberInputElementValue < randomNumValue) {
             alert("WRONG GUESS!! TRY A GREATER NUMBER");
             addAtemptToList();
-            console.log(randomNumValue);
-            console.log(guessTries);
         } 
     }
 
@@ -41,8 +37,6 @@ function lostGame() {
 
 function wonGame() {
     alert("YOU GUESSED IT RIGHT!! YOU NEEDED " + guessTries + " GUESS");
-    console.log(randomNumValue);
-    console.log(guessTries);
 
     document.getElementById("numberInput").disabled = true;
     document.getElementById("submitBtn").disabled = true;    
